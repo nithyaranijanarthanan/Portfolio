@@ -1,0 +1,154 @@
+.projects {
+  margin-left: 300px;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #1a0b2e, #2e1447); /* dark violet gradient */
+  font-family: 'Poppins', sans-serif;
+  color: #f5e9ff; /* lavender white */
+}
+
+.projects-title {
+  font-size: 36px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 40px;
+  color: #d78dff; /* neon purple accent */
+  text-shadow: 0 0 12px rgba(215, 141, 255, 0.8);
+  position: relative;
+}
+
+.projects-title::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 3px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, #d78dff, transparent);
+  border-radius: 4px;
+}
+
+.projects-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Horizontal Project Card */
+.project-card.horizontal {
+  display: flex;
+  background: rgba(70, 30, 110, 0.6); /* glassy violet card */
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(183, 107, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(183, 107, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card.horizontal:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(183, 107, 255, 0.4);
+}
+
+.project-img {
+  width: 40%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card.horizontal:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  width: 60%;
+  color: #f5e9ff;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.project-info h4 {
+  font-size: 22px;
+  margin: 0;
+  color: #e0aaff; /* glowing heading */
+  text-shadow: 0 0 8px rgba(224, 170, 255, 0.7);
+}
+
+.project-info p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #d4bdf7; /* soft lavender text */
+}
+
+.project-buttons {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+/* Buttons */
+.github-link, .project-tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* GitHub button */
+.github-link {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.github-link:hover {
+  background: #3a3a3a;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* Tech tag button */
+.project-tech {
+  background: linear-gradient(90deg, #d78dff, #9f6bff);
+  color: #0f0f0f;
+  box-shadow: 0 0 10px rgba(183, 107, 255, 0.6);
+}
+
+.project-tech:hover {
+  background: linear-gradient(90deg, #e6b3ff, #b47fff);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(224, 170, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .project-card.horizontal {
+    flex-direction: column;
+  }
+  .project-img, .project-info {
+    width: 100%;
+  }
+  .project-img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-title {
+    font-size: 28px;
+  }
+  .project-info h4 {
+    font-size: 18px;
+  }
+  .project-info p {
+    font-size: 14px;
+  }
+}

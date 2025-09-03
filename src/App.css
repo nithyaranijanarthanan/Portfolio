@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.main-content {
+  margin-left: 260px;
+  padding: 100px 20px 20px 50px;
+  width: calc(100% - 260px);
+  background-color: #fff;
+  min-height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+section {
+  margin-bottom: 80px;
+}
+
+h2.section-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+}
+
+/* --------------------------- */
+/* ✅ Responsive Media Queries */
+/* --------------------------- */
+
+@media screen and (max-width: 992px) {
+  .main-content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    padding: 80px 20px 20px 30px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    position: relative;
+    padding: 20px 10px;
+    min-height: auto;
+  }
+
+  .app,
+  .main-content,
+  .hero,
+  .skills,
+  .resume,
+  .contact {
+    margin-left: 0;
+    width: 100%;
+    padding: 60px 20px;
+  }
+
+  .hero {
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .resume-content,
+  .skills-grid,
+  .contact-wrapper {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  h2.section-title {
+    font-size: 20px;
+  }
+
+  .profile-img {
+    width: 80px;
+    height: 80px;
   }
 }

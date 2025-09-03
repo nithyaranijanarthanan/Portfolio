@@ -1,0 +1,118 @@
+.about {
+  margin-left: 300px;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #1a0b2e, #2e1447); /* dark plum to violet */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.about-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #d78dff; /* bright glowing purple */
+  text-shadow: 0 0 12px rgba(215, 141, 255, 0.8);
+  position: relative;
+  display: inline-block;
+}
+
+.about-title::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 3px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, #d78dff, transparent);
+  border-radius: 4px;
+}
+
+.about-desc {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #f0e1ff; /* soft white-lavender */
+  text-shadow: 0 0 6px rgba(160, 100, 220, 0.4);
+  margin-bottom: 40px;
+  max-width: 800px;
+}
+
+.education-content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.education-box {
+  flex: 1;
+  min-width: 250px;
+  padding: 25px 20px;
+  background: rgba(70, 30, 110, 0.6); /* glass effect */
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid rgba(183, 107, 255, 0.4); /* glowing edge */
+  color: #f5e9ff;
+  box-shadow: 0 4px 20px rgba(183, 107, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 30px rgba(183, 107, 255, 0.5);
+}
+
+.education-box h4 {
+  font-size: 22px;
+  color: #e0aaff;
+  text-shadow: 0 0 8px rgba(224, 170, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.education-box h5 {
+  font-size: 16px;
+  color: #cfa8ff;
+  margin-bottom: 10px;
+}
+
+.education-location {
+  font-size: 14px;
+  color: #f5e9ff;
+  opacity: 0.9;
+}
+
+/* --------------------------- */
+/* ✅ Responsive Styling */
+/* --------------------------- */
+
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-desc {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .education-content {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-title {
+    font-size: 24px;
+  }
+
+  .about-desc {
+    font-size: 15px;
+  }
+
+  .education-box {
+    padding: 20px;
+  }
+}

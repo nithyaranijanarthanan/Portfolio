@@ -1,0 +1,106 @@
+.skills {
+  margin-left: 300px; /* Matches sidebar width */
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #1a0b2e, #2e1447); /* dark violet gradient */
+  font-family: 'Poppins', sans-serif;
+  scroll-margin-top: 100px;
+  transition: all 0.3s ease;
+  color: #f5e9ff; /* soft lavender text */
+}
+
+.skills-title {
+  font-size: 36px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 40px;
+  color: #d78dff; /* neon purple accent */
+  text-shadow: 0 0 12px rgba(215, 141, 255, 0.8);
+  position: relative;
+}
+
+.skills-title::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 3px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, #d78dff, transparent);
+  border-radius: 4px;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Individual Skill Box */
+.skill-box {
+  background: rgba(70, 30, 110, 0.6); /* glassy card */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(183, 107, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  color: #f5e9ff;
+  border: 1px solid rgba(183, 107, 255, 0.3);
+}
+
+.skill-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(183, 107, 255, 0.4);
+  background: rgba(90, 40, 130, 0.7);
+}
+
+/* Skill Header */
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #e0aaff; /* glowing header */
+  text-shadow: 0 0 6px rgba(224, 170, 255, 0.6);
+}
+
+/* Skill Bar Background */
+.skill-bar-bg {
+  background: rgba(40, 20, 70, 0.8); /* darker contrast */
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Skill Bar Fill with animation */
+.skill-bar-fill {
+  background: linear-gradient(90deg, #d78dff, #9f6bff); /* neon purple gradient */
+  height: 100%;
+  width: 0; /* Start from 0 for animation */
+  border-radius: 6px;
+  transition: width 1.2s ease-in-out;
+  box-shadow: 0 0 8px rgba(183, 107, 255, 0.7);
+}
+
+/* Animate bars when visible */
+.skill-bar-fill.animate {
+  width: var(--fill-width);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .skills {
+    margin-left: 0;
+    padding: 50px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 40px 20px;
+  }
+
+  .skills-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+}
