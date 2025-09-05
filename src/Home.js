@@ -13,7 +13,9 @@ const Home = () => {
 
         <div className="home-buttons">
           <a href="#projects" className="btn-primary">View Projects</a>
-          <a href="/resume.pdf" download className="btn-secondary">Download Resume</a>
+<a href="/resume.pdf" download="NithyaJanarthanan_Resume.pdf" className="btn-secondary">
+  Download Resume
+</a>
         </div>
 
         <div className="about-stats">
