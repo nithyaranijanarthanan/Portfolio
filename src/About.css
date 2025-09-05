@@ -1,12 +1,16 @@
+/* -------------------- About Section -------------------- */
 .about {
-  margin-left: 300px;
-  padding: 80px 40px;
+  margin-left: var(--sidebar-width);
+  padding: 80px var(--page-gutter);
   background: linear-gradient(135deg, #1a0b2e, #2e1447); /* dark plum to violet */
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   position: relative;
   z-index: 1;
+  transition: margin-left 0.3s ease;
+  font-family: 'Poppins', sans-serif;
 }
 
+/* -------------------- Title -------------------- */
 .about-title {
   font-size: 36px;
   font-weight: 700;
@@ -27,6 +31,7 @@
   border-radius: 4px;
 }
 
+/* -------------------- Description -------------------- */
 .about-desc {
   font-size: 18px;
   line-height: 1.8;
@@ -36,6 +41,7 @@
   max-width: 800px;
 }
 
+/* -------------------- Education -------------------- */
 .education-content {
   display: flex;
   gap: 20px;
@@ -46,7 +52,7 @@
   flex: 1;
   min-width: 250px;
   padding: 25px 20px;
-  background: rgba(70, 30, 110, 0.6); /* glass effect */
+  background: rgba(34, 11, 58, 0.6); /* glass effect */
   backdrop-filter: blur(12px);
   border-radius: 12px;
   border: 1px solid rgba(183, 107, 255, 0.4); /* glowing edge */
@@ -61,6 +67,7 @@
 }
 
 .education-box h4 {
+  margin-top: -3px;
   font-size: 22px;
   color: #e0aaff;
   text-shadow: 0 0 8px rgba(224, 170, 255, 0.6);
@@ -79,12 +86,28 @@
   opacity: 0.9;
 }
 
-/* --------------------------- */
-/* ✅ Responsive Styling */
-/* --------------------------- */
+/* -------------------- Responsive -------------------- */
 
+/* Tablets */
+@media screen and (max-width: 1024px) {
+  .about {
+    margin-left: var(--sidebar-width); /* now 220px */
+    padding: 70px 25px;
+  }
+
+  .about-title {
+    font-size: 32px;
+  }
+
+  .about-desc {
+    font-size: 17px;
+  }
+}
+
+/* Mobiles */
 @media screen and (max-width: 768px) {
   .about {
+    margin-left: 0; /* sidebar collapses */
     padding: 60px 20px;
     text-align: center;
   }
@@ -103,6 +126,7 @@
   }
 }
 
+/* Small phones */
 @media screen and (max-width: 480px) {
   .about-title {
     font-size: 24px;

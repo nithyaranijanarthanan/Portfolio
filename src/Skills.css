@@ -1,13 +1,15 @@
+/* -------------------- Skills Section -------------------- */
 .skills {
-  margin-left: 300px; /* Matches sidebar width */
-  padding: 60px 40px;
+  margin-left: var(--sidebar-width); /* dynamic sidebar width */
+  padding: 60px var(--page-gutter);
   background: linear-gradient(135deg, #1a0b2e, #2e1447); /* dark violet gradient */
   font-family: 'Poppins', sans-serif;
   scroll-margin-top: 100px;
-  transition: all 0.3s ease;
+  transition: margin-left 0.3s ease, padding 0.3s ease;
   color: #f5e9ff; /* soft lavender text */
 }
 
+/* -------------------- Title -------------------- */
 .skills-title {
   font-size: 36px;
   font-weight: 700;
@@ -28,16 +30,16 @@
   border-radius: 4px;
 }
 
-/* Skills Grid */
+/* -------------------- Skills Grid -------------------- */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
-/* Individual Skill Box */
+/* -------------------- Individual Skill Box -------------------- */
 .skill-box {
-  background: rgba(70, 30, 110, 0.6); /* glassy card */
+  background: rgba(57, 19, 95, 0.6); /* glassy card */
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(183, 107, 255, 0.25);
@@ -52,7 +54,7 @@
   background: rgba(90, 40, 130, 0.7);
 }
 
-/* Skill Header */
+/* -------------------- Skill Header -------------------- */
 .skill-header {
   display: flex;
   justify-content: space-between;
@@ -63,17 +65,16 @@
   text-shadow: 0 0 6px rgba(224, 170, 255, 0.6);
 }
 
-/* Skill Bar Background */
+/* -------------------- Skill Bar -------------------- */
 .skill-bar-bg {
-  background: rgba(40, 20, 70, 0.8); /* darker contrast */
+  background: rgba(14, 1, 34, 0.8); /* darker contrast */
   height: 12px;
   border-radius: 6px;
   overflow: hidden;
 }
 
-/* Skill Bar Fill with animation */
 .skill-bar-fill {
-  background: linear-gradient(90deg, #d78dff, #9f6bff); /* neon purple gradient */
+  background: linear-gradient(90deg, #40115a, #9f6bff); /* neon purple gradient */
   height: 100%;
   width: 0; /* Start from 0 for animation */
   border-radius: 6px;
@@ -86,21 +87,43 @@
   width: var(--fill-width);
 }
 
-/* Responsive */
+/* -------------------- Responsive -------------------- */
+
+/* Tablets */
 @media (max-width: 1024px) {
   .skills {
-    margin-left: 0;
+    margin-left: var(--sidebar-width); /* now 220px */
     padding: 50px 30px;
+  }
+
+  .skills-title {
+    font-size: 32px;
+    margin-bottom: 35px;
   }
 }
 
+/* Mobiles */
 @media (max-width: 768px) {
   .skills {
+    margin-left: 0; /* sidebar collapses */
     padding: 40px 20px;
+    text-align: center;
   }
 
   .skills-title {
     font-size: 28px;
     margin-bottom: 30px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .skills {
+    padding: 35px 15px;
+  }
+
+  .skills-title {
+    font-size: 24px;
+    margin-bottom: 25px;
   }
 }

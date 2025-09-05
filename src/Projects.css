@@ -1,17 +1,20 @@
+/* -------------------- Projects Section -------------------- */
 .projects {
-  margin-left: 300px;
-  padding: 60px 40px;
-  background: linear-gradient(135deg, #1a0b2e, #2e1447); /* dark violet gradient */
+  margin-left: var(--sidebar-width); /* matches sidebar width */
+  padding: 60px var(--page-gutter);
+  background: linear-gradient(135deg, #1a0b2e, #2e1447);
   font-family: 'Poppins', sans-serif;
-  color: #f5e9ff; /* lavender white */
+  color: #f5e9ff;
+  transition: margin-left 0.3s ease, padding 0.3s ease;
 }
 
+/* -------------------- Title -------------------- */
 .projects-title {
   font-size: 36px;
   font-weight: 700;
   display: inline-block;
   margin-bottom: 40px;
-  color: #d78dff; /* neon purple accent */
+  color: #d78dff;
   text-shadow: 0 0 12px rgba(215, 141, 255, 0.8);
   position: relative;
 }
@@ -26,16 +29,17 @@
   border-radius: 4px;
 }
 
+/* -------------------- Content -------------------- */
 .projects-content {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-/* Horizontal Project Card */
+/* -------------------- Project Card -------------------- */
 .project-card.horizontal {
   display: flex;
-  background: rgba(70, 30, 110, 0.6); /* glassy violet card */
+  background: rgba(31, 7, 56, 0.6);
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(183, 107, 255, 0.3);
@@ -48,6 +52,7 @@
   box-shadow: 0 16px 40px rgba(183, 107, 255, 0.4);
 }
 
+/* Project Image */
 .project-img {
   width: 40%;
   object-fit: cover;
@@ -58,6 +63,7 @@
   transform: scale(1.05);
 }
 
+/* Project Info */
 .project-info {
   padding: 20px 25px;
   display: flex;
@@ -66,31 +72,31 @@
   gap: 12px;
   width: 60%;
   color: #f5e9ff;
-  margin-left: 10px;
-  margin-top: 10px;
 }
 
 .project-info h4 {
   font-size: 22px;
   margin: 0;
-  color: #e0aaff; /* glowing heading */
+  color: #e0aaff;
   text-shadow: 0 0 8px rgba(224, 170, 255, 0.7);
 }
 
 .project-info p {
   font-size: 15px;
   line-height: 1.5;
-  color: #d4bdf7; /* soft lavender text */
-}
-
-.project-buttons {
-  margin-top: 12px;
-  display: flex;
-  gap: 12px;
+  color: #d4bdf7;
 }
 
 /* Buttons */
-.github-link, .project-tech {
+.project-buttons {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.github-link,
+.project-tech {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -102,20 +108,20 @@
   transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* GitHub button */
+/* GitHub Button */
 .github-link {
   background: #2a2a2a;
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .github-link:hover {
   background: #3a3a3a;
   transform: translateY(-2px);
-  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-/* Tech tag button */
+/* Tech Button */
 .project-tech {
   background: linear-gradient(90deg, #d78dff, #9f6bff);
   color: #0f0f0f;
@@ -128,27 +134,82 @@
   box-shadow: 0 0 15px rgba(224, 170, 255, 0.8);
 }
 
-/* Responsive */
+/* -------------------- Responsive -------------------- */
+
+/* Tablets */
 @media (max-width: 1024px) {
+  .projects {
+    margin-left: var(--sidebar-width); /* shrinks to 220px */
+    padding: 50px 30px;
+  }
+
   .project-card.horizontal {
     flex-direction: column;
   }
-  .project-img, .project-info {
+
+  .project-img,
+  .project-info {
     width: 100%;
   }
+
   .project-img {
-    height: 200px;
+    height: 220px;
   }
 }
 
-@media (max-width: 480px) {
+/* Mobiles */
+@media (max-width: 768px) {
+  .projects {
+    margin-left: 0;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
   .projects-title {
     font-size: 28px;
+    margin-bottom: 30px;
   }
+
+  .project-info {
+    padding: 18px;
+    margin: 0;
+    gap: 10px;
+  }
+
   .project-info h4 {
     font-size: 18px;
   }
+
   .project-info p {
     font-size: 14px;
+  }
+
+  .project-buttons {
+    justify-content: center;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .projects {
+    padding: 35px 15px;
+  }
+
+  .projects-title {
+    font-size: 24px;
+  }
+
+  .project-info h4 {
+    font-size: 16px;
+  }
+
+  .project-info p {
+    font-size: 13px;
+  }
+
+  .github-link,
+  .project-tech {
+    font-size: 13px;
+    padding: 7px 12px;
   }
 }

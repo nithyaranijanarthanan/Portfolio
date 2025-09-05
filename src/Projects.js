@@ -19,7 +19,7 @@ const Projects = () => {
             </p>
             <div className="project-buttons">
               <a
-                href="https://github.com/nithyaranijanarthanan"
+                href="https://github.com/nithyaranijanarthanan/food-app-frontend"
                 target="_blank"
                 rel="noreferrer"
                 className="github-link"
@@ -47,7 +47,7 @@ const Projects = () => {
             </p>
             <div className="project-buttons">
               <a
-                href="https://github.com/nithyaranijanarthanan"
+                href="https://github.com/nithyaranijanarthanan/e-commerce-food-delivery-app"
                 target="_blank"
                 rel="noreferrer"
                 className="github-link"

@@ -1,60 +1,83 @@
-section{
-    margin-left: 300px;
+/* -------------------- Globals -------------------- */
+:root {
+  --sidebar-width: 260px; /* default desktop sidebar width */
+  --page-gutter: 30px;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* -------------------- Home Section -------------------- */
 .home {
+  /* use padding-left instead of margin-left so content never slips under sidebar */
+  padding: 20px 30px 20px calc(var(--sidebar-width) + var(--page-gutter));
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #140019, #2c0a44, #3c1769); /* darker to vibrant purple */
-  padding: 20px 30px;
-  font-family: 'Poppins', sans-serif;
-  color: #F3E8FF; /* brighter near-white lavender */
+  background: linear-gradient(135deg, #140019, #2c0a44, #3c1769);
+  color: #F3E8FF;
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* allow decorative bubbles & buttons to be visible */
+  transition: padding-left 0.28s ease;
+  font-family: 'Poppins', sans-serif;
+  z-index: 1;
 }
 
 .home-content {
   text-align: left;
   max-width: 900px;
-  z-index: 2;
+  width: 100%;
+  z-index: 5; /* above bubbles */
+  position: relative;
+  margin: 0 auto;
 }
 
+/* Headings / intro */
 .home-welcome {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 15px;
-  color: #d78dff; /* brighter purple */
-  text-shadow: 0 0 14px rgba(215, 141, 255, 0.8); /* glowing effect */
+  color: #d78dff;
+  text-shadow: 0 0 14px rgba(215, 141, 255, 0.8);
 }
 
 .home-intro {
   font-size: 20px;
   line-height: 1.7;
   margin-bottom: 30px;
-  color: #f0e1ff; /* soft white-lavender */
+  color: #f0e1ff;
   text-shadow: 0 0 6px rgba(180, 120, 255, 0.4);
 }
 
+/* Buttons */
 .home-buttons {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 40px;
+  align-items: center;
 }
 
 .btn-primary,
 .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  padding: 12px 25px;
+  padding: 12px 22px;
   border-radius: 8px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.22s ease;
   box-shadow: 0 0 15px rgba(183, 107, 255, 0.3);
+  white-space: nowrap; /* prevents text from wrapping inside the button */
 }
 
 .btn-primary {
-  background-color: #7c3aed;  /* vivid purple */
+  background-color: #7c3aed;
   color: #ffffff;
 }
 
@@ -64,7 +87,7 @@ section{
 }
 
 .btn-secondary {
-  background-color: #5b2a86; /* deep violet */
+  background-color: #5b2a86;
   color: #ffffff;
 }
 
@@ -73,22 +96,51 @@ section{
   box-shadow: 0 0 20px rgba(129, 77, 202, 0.7);
 }
 
-/* Decorative pseudo elements */
-.home::before {
-  width: 200px;
-  height: 200px;
-  top: 50px;
-  right: 100px;
+/* -------------------- Bubbles wrapper (keeps layout safe) -------------------- */
+.bubbles-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--sidebar-width) + 0px); /* start after sidebar */
+  right: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 2; /* behind home-content (which is z-index:5) */
 }
 
-.home::after {
-  width: 150px;
-  height: 150px;
-  bottom: 50px;
-  left: 80px;
+/* Bubble base styling */
+.bubble {
+  position: absolute;
+  bottom: -150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,150,255,0.6), transparent);
+  opacity: 0.7;
+  animation: floatWave linear infinite;
 }
 
-/* About Stats */
+/* sizes */
+.bubble.small  { width: 40px; height: 40px; }
+.bubble.medium { width: 70px; height: 70px; }
+.bubble.large  { width: 110px; height: 110px; }
+
+/* keyframes remain the same */
+@keyframes floatWave {
+  0%   { transform: translateX(0) translateY(0) scale(0.8); opacity: 0.7; }
+  25%  { transform: translateX(50px) translateY(-150px) scale(1); opacity: 1; }
+  50%  { transform: translateX(-50px) translateY(-300px) scale(0.9); opacity: 0.8; }
+  75%  { transform: translateX(40px) translateY(-450px) scale(1.05); opacity: 1; }
+  100% { transform: translateX(-40px) translateY(-600px) scale(0.8); opacity: 0; }
+}
+
+/* bubble positions (still relative to wrapper) */
+.bubble:nth-child(1) { left: 10%; animation-duration: 5s; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 25%; animation-duration: 10s; animation-delay: 3s; }
+.bubble:nth-child(3) { left: 40%; animation-duration: 9s; animation-delay: 6s; }
+.bubble:nth-child(4) { left: 55%; animation-duration: 12s; animation-delay: 2s; }
+.bubble:nth-child(5) { left: 70%; animation-duration: 8s; animation-delay: 5s; }
+.bubble:nth-child(6) { left: 85%; animation-duration: 15s; animation-delay: 1s; }
+
+/* -------------------- About Stats -------------------- */
 .about-stats {
   display: flex;
   gap: 20px;
@@ -99,7 +151,7 @@ section{
 .about-stats div {
   flex: 1;
   min-width: 150px;
-  background: rgba(43, 12, 75, 0.7); /* semi-transparent */
+  background: rgba(43, 12, 75, 0.7);
   backdrop-filter: blur(10px);
   padding: 25px 20px;
   border-radius: 12px;
@@ -114,56 +166,62 @@ section{
   box-shadow: 0 8px 30px rgba(183, 107, 255, 0.4);
 }
 
+/* fonts inside stats */
 .about-stats h4 {
   font-size: 28px;
-  color: #e0aaff; /* vivid purple */
+  color: #e0aaff;
   text-shadow: 0 0 10px rgba(224, 170, 255, 0.7);
   margin-bottom: 8px;
 }
 
 .about-stats p {
   font-size: 14px;
-  color: #f5e9ff; /* lighter for contrast */
+  color: #f5e9ff;
   text-shadow: 0 0 5px rgba(200, 150, 255, 0.4);
 }
 
-/* Responsive Media Queries */
+/* -------------------- Responsive -------------------- */
+
+/* Tablet: smaller sidebar width */
 @media screen and (max-width: 1024px) {
+  :root { --sidebar-width: 220px; }
+
   .home {
-    padding: 50px 30px;
+    padding: 32px 20px 32px calc(var(--sidebar-width) + var(--page-gutter));
   }
 
-  .home-welcome {
-    font-size: 40px;
-  }
-
-  .home-intro {
-    font-size: 18px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .home {
-    text-align: center;
-    padding: 50px 20px;
-  }
-
-  .home-buttons {
-    justify-content: center;
-  }
+  .home-welcome { font-size: 40px; }
+  .home-intro { font-size: 18px; }
 
   .about-stats {
     flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+  }
+
+  .about-stats div {
+    flex: 1 1 45%; /* two per row */
+    min-width: 200px;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .home-welcome {
-    font-size: 32px;
+/* Mobile: sidebar becomes top nav -> no left padding */
+@media screen and (max-width: 768px) {
+  :root { --sidebar-width: 0px; }
+
+  .home {
+    padding: 28px 16px 28px calc(var(--sidebar-width) + 18px);
+    text-align: center;
   }
 
-  .home-intro {
-    font-size: 16px;
+  .home-welcome { font-size: 34px; }
+  .home-intro  { font-size: 17px; }
+
+  .home-buttons {
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 28px;
   }
 
   .btn-primary,
@@ -173,7 +231,25 @@ section{
   }
 
   .about-stats {
-    flex-direction: column;
     gap: 15px;
   }
+
+  .about-stats div {
+    flex: 1 1 100%;
+  }
+
+  /* Make bubbles smaller or fewer on mobile if desired */
+  .bubble.large { width: 80px; height: 80px; }
+  .bubble.medium { width: 50px; height: 50px; }
+  .bubble.small { width: 30px; height: 30px; }
+}
+
+/* Small devices */
+@media screen and (max-width: 480px) {
+  .home-welcome { font-size: 28px; margin-bottom: 8px; }
+  .home-intro { font-size: 15px; line-height: 1.6; }
+  .about-stats { flex-direction: column; gap: 12px; }
+  .about-stats div { padding: 20px 14px; }
+  .about-stats h4 { font-size: 24px; }
+  .about-stats p  { font-size: 13px; }
 }
