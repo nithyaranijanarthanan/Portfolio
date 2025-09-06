@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from "react";
 import "./Skills.css";
 
 const skills = [
-  { name: "HTML", level: 90 },
-  { name: "CSS", level: 85 },
-  { name: "JavaScript", level: 75 },
-  { name: "ReactJs", level: 70 },
+  { name: "HTML", level: 95 },
+  { name: "CSS", level: 90 },
+  { name: "JavaScript", level: 85 },
+  { name: "ReactJs", level: 80 },
   { name: "NextJs", level: 70 },
-  { name: "NodeJs", level: 60 },
+  { name: "NodeJs", level: 80},
 ];
 
 const Skills = () => {
