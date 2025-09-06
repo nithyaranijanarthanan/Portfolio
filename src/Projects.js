@@ -5,6 +5,14 @@ import "./Projects.css";
 // Array of project data for easy management
 const projectData = [
   {
+  title: "Weather Dashboard | JavaScript",
+  description:
+    "A responsive web application that provides real-time weather updates for any city using API integration. Features include dynamic UI updates, search functionality, and user-friendly design.",
+  imgSrc: "/pic4.jpg",
+  githubLink: "https://github.com/nithyaranijanarthanan/weather-app",
+  tech: "JavaScript",
+},
+  {
     title: "Frontend Food App",
     description:
       "A clean and responsive frontend food application built with React.js, providing smooth navigation and user-friendly design for exploring food items.",
@@ -20,6 +28,7 @@ const projectData = [
     githubLink: "https://github.com/nithyaranijanarthanan/e-commerce-food-delivery-app",
     tech: "MERN Stack",
   },
+
 ];
 
 const Projects = () => {
